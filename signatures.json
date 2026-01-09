@@ -1,0 +1,51 @@
+{
+    "suspiciousExtensions": [
+        ".exe", ".ps1", ".vbs", ".bat", ".cmd",
+        ".js", ".jse", ".vbe", ".wsf", ".wsh",
+        ".scr", ".pif", ".com", ".dll", ".ocx"
+    ],
+    "benignStreams": [
+        "Zone.Identifier",
+        "encryptable",
+        "SummaryInformation",
+        "DocumentSummaryInformation",
+        "{$I30",
+        "OECustomProperty",
+        "com.apple.quarantine",
+        "AFP_AfpInfo",
+        "AFP_Resource"
+    ],
+    "encodingPatterns": [
+        "^[A-Za-z0-9+/=]{20,}$",
+        "^[0-9A-Fa-f\\s]{20,}$",
+        "powershell.*[\\-\\/][eE][nN][cC]",
+        "frombase64string",
+        "invoke[\\-\\_]expression",
+        "iex\\s*\\(|invoke\\-expression",
+        "\\-encodedcommand",
+        "exec\\s*\\(|eval\\s*\\("
+    ],
+    "sensitivePaths": [
+        "C:\\\\Windows\\\\System32",
+        "C:\\\\Windows\\\\SysWOW64",
+        "C:\\\\Windows\\\\Temp",
+        "C:\\\\ProgramData",
+        "C:\\\\Users\\\\*\\\\AppData\\\\Local\\\\Temp",
+        "C:\\\\Users\\\\*\\\\AppData\\\\Roaming",
+        "C:\\\\inetpub\\\\wwwroot",
+        "C:\\\\Program Files"
+    ],
+    "riskScoreWeights": {
+        "suspiciousExtension": 30,
+        "largeStream": 25,
+        "encodedContent": 35,
+        "sensitiveLocation": 20,
+        "unreadableStream": 10,
+        "processCorrelation": 40
+    },
+    "thresholds": {
+        "largeStreamMB": 1,
+        "highRiskScore": 50,
+        "criticalRiskScore": 80
+    }
+}
